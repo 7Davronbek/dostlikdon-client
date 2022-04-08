@@ -1,56 +1,29 @@
-
+import React from 'react';
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import Admin from './pages/Admin';
-import {ToastContainer} from 'react-toastify';
-import AdminNews from "./components/AdminNews";
-import AdminMenus from "./components/AdminMenus";
-import NotFound from "./components/NotFound";
-import PrivateRoute from "./components/PrivateRoute";
-import CategoryPage from "./pages/CategoryPage";
-import Information from "./pages/Information";
-import {connect} from 'react-redux';
-import {RingLoader} from 'react-spinners';
+import "./css/main.scss"
+import Yangiliklar from "./pages/Yangiliklar";
+import {ToastContainer} from "react-toastify";
+import AdminMenus from "./pages/AdminMenus";
+import AdminNews from "./pages/AdminNews";
+import Category from "./pages/Category";
 
-function App(props) {
-  return (
-    <div>
+const App = () => {
+    return (
         <BrowserRouter>
+          <Switch>
+            <Route path="/" exact component={Home}/>
+            <Route path="/login" exact component={Login}/>
+            <Route path="/yangiliklar/:url" exact component={Yangiliklar}/>
+            <Route path="/admin/menus" exact component={AdminMenus}/>
+            <Route path="/admin/news" exact component={AdminNews}/>
+            <Route path="/category/:url" exact component={Category}/>
+          </Switch>
 
-            <Switch>
-                <Route exact path='/' component={Home}/>
-                <Route exact path='/category/:url' component={CategoryPage}/>
-                <Route exact path='/category/:url/news/:newsUrl' component={Information}/>
-                <Route exact path='/login' component={Login}/>
-                <PrivateRoute exact path='/admin' component={Admin}/>
-                <PrivateRoute exact path='/admin/news' component={AdminNews}/>
-                <PrivateRoute exact path='/admin/menus' component={AdminMenus}/>
-
-
-                <Route component={NotFound}/>
-            </Switch>
+            <ToastContainer/>
         </BrowserRouter>
-        <ToastContainer/>
+    );
+};
 
-
-        {/*{props.pageLoading ?*/}
-        {/*    <div className="page-loader">*/}
-        {/*        <RingLoader*/}
-        {/*            loading={props.pageLoading}*/}
-        {/*            color="#008F48"*/}
-        {/*        />*/}
-        {/*    </div> : ""*/}
-        {/*}*/}
-
-    </div>
-  );
-}
-
-const mapStateToProps = (state) => {
-    return {
-        pageLoading: state.app.pageLoading
-    }
-}
-
-export default connect(mapStateToProps, {})(App);
+export default App;

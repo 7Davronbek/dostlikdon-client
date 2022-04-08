@@ -1,29 +1,44 @@
-import React, {Component} from 'react';
-import TopTitle from "../components/TopTitle";
-import NavbarPart from "../components/NavbarPart";
-import HomeCarousel from "../components/HomeCarousel";
-import News from "../components/News";
-import NewsCompany from "../components/NewsCompany";
-import Complaint from "../components/Complaint";
-import '../main.css';
-import FooterPart from "../components/FooterPart";
-import Services from "../components/Services";
-class Home extends Component {
-    render() {
-        return (
-            <div className="body-bg-color">
+import React from 'react';
+import Navbar from "../components/Navbar";
+import NavbarNav from "../components/NavbarNav";
+import Carousel from "../components/Carousel";
+import Props from "../components/Props";
+import Reference from "../components/Reference";
+import Media from "../components/Media";
+import Prop from "../components/prop";
+import DataGov from "../components/DataGov";
+import Footer from "../components/Footer";
 
-                <TopTitle/>
-                <NavbarPart/>
-                <HomeCarousel/>
-                <News/>
-                <NewsCompany/>
-                <Complaint/>
-                <Services/>
-                <FooterPart/>
+const Home = () => {
+    return (
+        <div className="home">
+            <nav className="bg-light">
+                <div className="container">
+                    <div className="row">
+
+                            <Navbar/>
+
+                    </div>
+                </div>
+            </nav>
+            <div className="bg-white">
+                <div className="container">
+                    <div className="row">
+                        <NavbarNav/>
+                    </div>
+                </div>
             </div>
-        );
-    }
-}
+            <Carousel/>
+            <Props news={[]}/>
+            <Reference/>
+            <Media/>
+            <Prop/>
+            <div className="bg-white">
+                <DataGov/>
+            </div>
+            <Footer/>
+        </div>
+    );
+};
 
 export default Home;

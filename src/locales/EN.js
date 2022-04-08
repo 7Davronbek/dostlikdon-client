@@ -1,4 +1,4 @@
-export const EN = {
-    search: "Search...",
-    news: "News",
-}
+export const en = {
+    search: "Search",
+    main: "Main"
+};

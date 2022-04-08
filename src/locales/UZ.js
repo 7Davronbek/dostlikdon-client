@@ -1,4 +1,5 @@
-export const UZ = {
+
+export const uz = {
     search: "Saytdan izlash",
-    news: "Yangiliklar"
-}
+    main: "Asosiy"
+};

@@ -1,4 +1,4 @@
-export const RU = {
+export const ru = {
     search: "Поиск в сайте",
-    news: "Новости"
+    main: "Главная"
 }

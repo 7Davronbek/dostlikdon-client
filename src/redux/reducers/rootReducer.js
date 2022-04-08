@@ -1,12 +1,10 @@
 import {combineReducers} from "redux";
 import {loginReducer} from "./loginReducer";
-import {adminNewsReducer} from "./adminNewsReducer";
-import {adminMenusReducer} from "./adminMenusReducer";
-import {appReducer} from "./appReduer";
+import {menusReducer} from "./menusReducer";
+import {newsReducer} from "./newsReducer";
 
 export const rootReducer = combineReducers({
     login: loginReducer,
-    news: adminNewsReducer,
-    menu: adminMenusReducer,
-    app: appReducer
+    menus: menusReducer,
+    news: newsReducer
 });
